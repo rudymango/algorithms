@@ -1,5 +1,9 @@
 #include <iostream>
 #include <cmath>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+#include "../arrayfunctions.cpp"
 
 int parent(int i) {
     return floor(i/2);
@@ -42,23 +46,16 @@ void Heapsort(int A[], int n) {
         MaxHeapify(A, i, 0);
     }
 }
-
-void print(int A[], int n) {
-    std::cout << "[";
-    for (int i = 0; i < n; i++) {
-        std::cout << A[i];
-        if (i < n-1) {std::cout << ", ";} 
-    }
-    std::cout << "]" << std::endl;
-}
         
 int main() {
-    int arr[] = { 16, 4, 10, 14, 7, 9, 3, 2, 8, 1 };
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int array[50];
+    int n = 50;
 
-    std::cout << "init:\t"; print(arr, n);
-    Heapsort(arr, n);
-    std::cout << "sort:\t"; print(arr, n);
+    import(array, 50);
+    
+    std::cout << "init:\t"; print(array,n);
+    Heapsort(array, n);
+    std::cout << "sort:\t"; print(array, n);
 
     return 0;
 }
